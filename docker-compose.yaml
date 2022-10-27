@@ -31,10 +31,10 @@ services:
   msvc-usuarios:
     container_name: msvc-usuarios
 #    image: usuarios:latest
-    image: rorolopezg/usuarios:latest
-#    build:
-#      context: ./
-#      dockerfile: ./msvc-usuarios/Dockerfile
+#    image: rorolopezg/usuarios:latest
+    build:
+      context: ./
+      dockerfile: ./msvc-usuarios/Dockerfile
     ports:
       - "8001:8001"
 #    env_file: ./msvc-usuarios/.env
@@ -55,10 +55,9 @@ services:
     container_name: msvc-cursos
     image: rorolopezg/cursos:latest
     #image: cursos:latest
-#    build:
-#      network: spring
-#      context: ./
-#      dockerfile: ./msvc-cursos/Dockerfile
+    build:
+      context: ./
+      dockerfile: ./msvc-cursos/Dockerfile
     ports:
       - "8002:8002"
 #    env_file:
