@@ -19,6 +19,21 @@ spec:
         - containerPort: 3306
         env:
           - name: MYSQL_ROOT_PASSWORD
-            value: cduc1978
-          - name: MY_SQL_DATABASE
-            value: msvc_usuarios
+            valueFrom:
+              secretKeyRef:
+                name: msvc-usuarios
+                key: password
+            #value: cduc1978
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: msvc-usuarios
+                key: database
+            #value: msvc_usuarios
+        volumeMounts:
+          - name: data-mysql
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: data-mysql
+          persistentVolumeClaim:
+            claimName: mysql-pvc
