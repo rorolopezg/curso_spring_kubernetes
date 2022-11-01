@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
+@EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
 public class MsvcUsuariosApplication implements ApplicationRunner {
