@@ -25,14 +25,21 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 20
           timeoutSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /actuator/health/liveness
-            port: 8001
-            scheme: HTTP
-          initialDelaySeconds: 10
-          periodSeconds: 30
-          timeoutSeconds: 10
+#        livenessProbe:
+#          httpGet:
+#            path: /actuator/health/liveness
+#            port: 8001
+#            scheme: HTTP
+#          initialDelaySeconds: 10
+#          periodSeconds: 30
+#          timeoutSeconds: 10
+#        resources:
+#          requests:
+#            memory: "512Mi"
+#            cpu: "400m"
+#          limits:
+#            memory: "800Mi"
+#            cpu: "500m"
         env:
           - name: MY_POD_NAME
             valueFrom:
